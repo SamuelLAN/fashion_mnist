@@ -19,7 +19,7 @@ class Saver(keras.callbacks.Callback):
         self.__best = -np.Inf if self.__mode == 'max' else np.Inf
 
     def on_epoch_end(self, epoch, logs=None):
-        if logs['binary_accuracy'] < self.__start_train_acc:
+        if logs['categorical_accuracy'] < self.__start_train_acc:
             return
 
         monitor = logs[self.__monitor]
