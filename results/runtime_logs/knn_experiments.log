@@ -1,0 +1,132 @@
+Start evaluating training set ...
+
+
+- accuracy: 0.899767
+
+- global f1: 0.899767
+- class 0 f1 score: 0.870190
+- class 1 f1 score: 0.987412
+- class 2 f1 score: 0.835072
+- class 3 f1 score: 0.919105
+- class 4 f1 score: 0.844922
+- class 5 f1 score: 0.936302
+- class 6 f1 score: 0.738215
+- class 7 f1 score: 0.938264
+- class 8 f1 score: 0.973538
+- class 9 f1 score: 0.948556
+use time: 5531s
+
+Finish evaluating
+
+Start evaluating test set ...
+
+
+- accuracy: 0.855400
+
+- global f1: 0.855400
+- class 0 f1 score: 0.810811
+- class 1 f1 score: 0.977284
+- class 2 f1 score: 0.771550
+- class 3 f1 score: 0.881148
+- class 4 f1 score: 0.780414
+- class 5 f1 score: 0.899344
+- class 6 f1 score: 0.613661
+- class 7 f1 score: 0.917861
+- class 8 f1 score: 0.963600
+- class 9 f1 score: 0.930769
+use time: 886s
+
+Finish evaluating
+
+Start PCA ...
+Finish PCA
+
+Start evaluating training set ...
+
+
+- accuracy: 0.899767
+
+- global f1: 0.899767
+- class 0 f1 score: 0.870190
+- class 1 f1 score: 0.987412
+- class 2 f1 score: 0.835072
+- class 3 f1 score: 0.919105
+- class 4 f1 score: 0.844922
+- class 5 f1 score: 0.936302
+- class 6 f1 score: 0.738215
+- class 7 f1 score: 0.938264
+- class 8 f1 score: 0.973538
+- class 9 f1 score: 0.948556
+use time: 1432s
+
+Finish evaluating
+
+Start evaluating test set ...
+
+
+- accuracy: 0.855400
+
+- global f1: 0.855400
+- class 0 f1 score: 0.810811
+- class 1 f1 score: 0.977284
+- class 2 f1 score: 0.771550
+- class 3 f1 score: 0.881148
+- class 4 f1 score: 0.780414
+- class 5 f1 score: 0.899344
+- class 6 f1 score: 0.613661
+- class 7 f1 score: 0.917861
+- class 8 f1 score: 0.963600
+- class 9 f1 score: 0.930769
+use time: 254s
+
+Finish evaluating
+
+Start LDA ...
+Finish LDA
+
+Start evaluating training set ...
+
+
+- accuracy: 0.880050
+
+- global f1: 0.880050
+- class 0 f1 score: 0.848784
+- class 1 f1 score: 0.978335
+- class 2 f1 score: 0.805441
+- class 3 f1 score: 0.888815
+- class 4 f1 score: 0.807651
+- class 5 f1 score: 0.929523
+- class 6 f1 score: 0.709582
+- class 7 f1 score: 0.917976
+- class 8 f1 score: 0.960696
+- class 9 f1 score: 0.943026
+use time: 16s
+
+Finish evaluating
+
+Start evaluating test set ...
+
+
+- accuracy: 0.822100
+
+- global f1: 0.822100
+- class 0 f1 score: 0.782112
+- class 1 f1 score: 0.970157
+- class 2 f1 score: 0.711485
+- class 3 f1 score: 0.827586
+- class 4 f1 score: 0.699244
+- class 5 f1 score: 0.904250
+- class 6 f1 score: 0.559091
+- class 7 f1 score: 0.892683
+- class 8 f1 score: 0.934935
+- class 9 f1 score: 0.918622
+use time: 3s
+
+Finish evaluating
+
+
+done
+
+Process finished with exit code 0
+
+K = 5

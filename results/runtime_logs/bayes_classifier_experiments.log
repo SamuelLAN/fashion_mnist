@@ -1,0 +1,1361 @@
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.798700
+
+- global f1: 0.798700
+- class 0 f1 score: 0.855102
+- class 1 f1 score: 0.875457
+- class 2 f1 score: 0.682124
+- class 3 f1 score: 0.797809
+- class 4 f1 score: 0.725338
+- class 5 f1 score: 0.822585
+- class 6 f1 score: 0.636013
+- class 7 f1 score: 0.770833
+- class 8 f1 score: 0.920940
+- class 9 f1 score: 0.924621
+use time: 344s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.727700
+
+- global f1: 0.727700
+- class 0 f1 score: 0.763350
+- class 1 f1 score: 0.843262
+- class 2 f1 score: 0.517066
+- class 3 f1 score: 0.744643
+- class 4 f1 score: 0.600985
+- class 5 f1 score: 0.793305
+- class 6 f1 score: 0.511371
+- class 7 f1 score: 0.749077
+- class 8 f1 score: 0.866219
+- class 9 f1 score: 0.914672
+use time: 53s
+
+Finish evaluating
+
+###################################
+dimension size: 20
+Start PCA ...
+X_train_lda.shape: (60000, 20)
+X_test_lda.shape: (10000, 20)
+Finish PCA
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.798000
+
+- global f1: 0.798000
+- class 0 f1 score: 0.779022
+- class 1 f1 score: 0.943496
+- class 2 f1 score: 0.740230
+- class 3 f1 score: 0.817555
+- class 4 f1 score: 0.717426
+- class 5 f1 score: 0.827101
+- class 6 f1 score: 0.574996
+- class 7 f1 score: 0.731636
+- class 8 f1 score: 0.923918
+- class 9 f1 score: 0.911215
+use time: 8s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.788700
+
+- global f1: 0.788700
+- class 0 f1 score: 0.769539
+- class 1 f1 score: 0.936170
+- class 2 f1 score: 0.727001
+- class 3 f1 score: 0.813166
+- class 4 f1 score: 0.706320
+- class 5 f1 score: 0.825784
+- class 6 f1 score: 0.534795
+- class 7 f1 score: 0.749230
+- class 8 f1 score: 0.911005
+- class 9 f1 score: 0.908119
+use time: 1s
+
+Finish evaluating
+
+###################################
+dimension size: 50
+Start PCA ...
+X_train_lda.shape: (60000, 50)
+X_test_lda.shape: (10000, 50)
+Finish PCA
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.814383
+
+- global f1: 0.814383
+- class 0 f1 score: 0.803636
+- class 1 f1 score: 0.953261
+- class 2 f1 score: 0.780529
+- class 3 f1 score: 0.839926
+- class 4 f1 score: 0.751135
+- class 5 f1 score: 0.812197
+- class 6 f1 score: 0.619346
+- class 7 f1 score: 0.711205
+- class 8 f1 score: 0.929506
+- class 9 f1 score: 0.921910
+use time: 9s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.808300
+
+- global f1: 0.808300
+- class 0 f1 score: 0.795785
+- class 1 f1 score: 0.952880
+- class 2 f1 score: 0.775388
+- class 3 f1 score: 0.829151
+- class 4 f1 score: 0.741573
+- class 5 f1 score: 0.811930
+- class 6 f1 score: 0.599320
+- class 7 f1 score: 0.717172
+- class 8 f1 score: 0.916270
+- class 9 f1 score: 0.925926
+use time: 1s
+
+Finish evaluating
+
+###################################
+dimension size: 80
+Start PCA ...
+X_train_lda.shape: (60000, 80)
+X_test_lda.shape: (10000, 80)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.817267
+
+- global f1: 0.817267
+- class 0 f1 score: 0.808440
+- class 1 f1 score: 0.948392
+- class 2 f1 score: 0.797215
+- class 3 f1 score: 0.841148
+- class 4 f1 score: 0.762262
+- class 5 f1 score: 0.801932
+- class 6 f1 score: 0.644343
+- class 7 f1 score: 0.694382
+- class 8 f1 score: 0.928809
+- class 9 f1 score: 0.924330
+use time: 10s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.805300
+
+- global f1: 0.805300
+- class 0 f1 score: 0.800202
+- class 1 f1 score: 0.944034
+- class 2 f1 score: 0.772567
+- class 3 f1 score: 0.825714
+- class 4 f1 score: 0.731707
+- class 5 f1 score: 0.806688
+- class 6 f1 score: 0.603629
+- class 7 f1 score: 0.703775
+- class 8 f1 score: 0.921178
+- class 9 f1 score: 0.925795
+use time: 1s
+
+Finish evaluating
+
+###################################
+dimension size: 110
+Start PCA ...
+X_train_lda.shape: (60000, 110)
+X_test_lda.shape: (10000, 110)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.817050
+
+- global f1: 0.817050
+- class 0 f1 score: 0.814821
+- class 1 f1 score: 0.944220
+- class 2 f1 score: 0.800800
+- class 3 f1 score: 0.841047
+- class 4 f1 score: 0.760325
+- class 5 f1 score: 0.795553
+- class 6 f1 score: 0.658730
+- class 7 f1 score: 0.684536
+- class 8 f1 score: 0.929711
+- class 9 f1 score: 0.923259
+use time: 22s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.804100
+
+- global f1: 0.804100
+- class 0 f1 score: 0.796087
+- class 1 f1 score: 0.937931
+- class 2 f1 score: 0.777261
+- class 3 f1 score: 0.822465
+- class 4 f1 score: 0.732143
+- class 5 f1 score: 0.803086
+- class 6 f1 score: 0.620783
+- class 7 f1 score: 0.700965
+- class 8 f1 score: 0.913105
+- class 9 f1 score: 0.927595
+use time: 3s
+
+Finish evaluating
+
+###################################
+dimension size: 140
+Start PCA ...
+X_train_lda.shape: (60000, 140)
+X_test_lda.shape: (10000, 140)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.817283
+
+- global f1: 0.817283
+- class 0 f1 score: 0.824251
+- class 1 f1 score: 0.941706
+- class 2 f1 score: 0.798998
+- class 3 f1 score: 0.843419
+- class 4 f1 score: 0.760850
+- class 5 f1 score: 0.792037
+- class 6 f1 score: 0.666469
+- class 7 f1 score: 0.674179
+- class 8 f1 score: 0.932574
+- class 9 f1 score: 0.924092
+use time: 27s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.798400
+
+- global f1: 0.798400
+- class 0 f1 score: 0.788035
+- class 1 f1 score: 0.936170
+- class 2 f1 score: 0.773504
+- class 3 f1 score: 0.814885
+- class 4 f1 score: 0.735441
+- class 5 f1 score: 0.794389
+- class 6 f1 score: 0.612084
+- class 7 f1 score: 0.686684
+- class 8 f1 score: 0.914634
+- class 9 f1 score: 0.923233
+use time: 4s
+
+Finish evaluating
+
+###################################
+dimension size: 170
+Start PCA ...
+X_train_lda.shape: (60000, 170)
+X_test_lda.shape: (10000, 170)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.814917
+
+- global f1: 0.814917
+- class 0 f1 score: 0.825047
+- class 1 f1 score: 0.937959
+- class 2 f1 score: 0.796718
+- class 3 f1 score: 0.841513
+- class 4 f1 score: 0.758259
+- class 5 f1 score: 0.787255
+- class 6 f1 score: 0.667967
+- class 7 f1 score: 0.667180
+- class 8 f1 score: 0.930335
+- class 9 f1 score: 0.925023
+use time: 32s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.793700
+
+- global f1: 0.793700
+- class 0 f1 score: 0.790625
+- class 1 f1 score: 0.929336
+- class 2 f1 score: 0.760594
+- class 3 f1 score: 0.809636
+- class 4 f1 score: 0.735376
+- class 5 f1 score: 0.786963
+- class 6 f1 score: 0.613095
+- class 7 f1 score: 0.681520
+- class 8 f1 score: 0.908836
+- class 9 f1 score: 0.922051
+use time: 5s
+
+Finish evaluating
+
+###################################
+dimension size: 200
+Start PCA ...
+X_train_lda.shape: (60000, 200)
+X_test_lda.shape: (10000, 200)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.812733
+
+- global f1: 0.812733
+- class 0 f1 score: 0.830868
+- class 1 f1 score: 0.932764
+- class 2 f1 score: 0.789200
+- class 3 f1 score: 0.838298
+- class 4 f1 score: 0.757386
+- class 5 f1 score: 0.782689
+- class 6 f1 score: 0.671761
+- class 7 f1 score: 0.657871
+- class 8 f1 score: 0.931135
+- class 9 f1 score: 0.924204
+use time: 37s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.788000
+
+- global f1: 0.788000
+- class 0 f1 score: 0.793067
+- class 1 f1 score: 0.921833
+- class 2 f1 score: 0.747029
+- class 3 f1 score: 0.805256
+- class 4 f1 score: 0.727375
+- class 5 f1 score: 0.777953
+- class 6 f1 score: 0.612211
+- class 7 f1 score: 0.663564
+- class 8 f1 score: 0.906977
+- class 9 f1 score: 0.926002
+use time: 6s
+
+Finish evaluating
+
+###################################
+dimension size: 230
+Start PCA ...
+X_train_lda.shape: (60000, 230)
+X_test_lda.shape: (10000, 230)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.811333
+
+- global f1: 0.811333
+- class 0 f1 score: 0.834187
+- class 1 f1 score: 0.927710
+- class 2 f1 score: 0.786768
+- class 3 f1 score: 0.835296
+- class 4 f1 score: 0.755527
+- class 5 f1 score: 0.780934
+- class 6 f1 score: 0.671615
+- class 7 f1 score: 0.656819
+- class 8 f1 score: 0.933892
+- class 9 f1 score: 0.922853
+use time: 44s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.782000
+
+- global f1: 0.782000
+- class 0 f1 score: 0.791337
+- class 1 f1 score: 0.914813
+- class 2 f1 score: 0.737629
+- class 3 f1 score: 0.802607
+- class 4 f1 score: 0.715922
+- class 5 f1 score: 0.774471
+- class 6 f1 score: 0.602082
+- class 7 f1 score: 0.650538
+- class 8 f1 score: 0.909515
+- class 9 f1 score: 0.924025
+use time: 7s
+
+Finish evaluating
+
+###################################
+dimension size: 260
+Start PCA ...
+X_train_lda.shape: (60000, 260)
+X_test_lda.shape: (10000, 260)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.809133
+
+- global f1: 0.809133
+- class 0 f1 score: 0.839424
+- class 1 f1 score: 0.924346
+- class 2 f1 score: 0.783149
+- class 3 f1 score: 0.832432
+- class 4 f1 score: 0.753893
+- class 5 f1 score: 0.775489
+- class 6 f1 score: 0.672830
+- class 7 f1 score: 0.648703
+- class 8 f1 score: 0.934526
+- class 9 f1 score: 0.920586
+use time: 51s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.776400
+
+- global f1: 0.776400
+- class 0 f1 score: 0.786589
+- class 1 f1 score: 0.911268
+- class 2 f1 score: 0.728555
+- class 3 f1 score: 0.799258
+- class 4 f1 score: 0.710195
+- class 5 f1 score: 0.767198
+- class 6 f1 score: 0.596863
+- class 7 f1 score: 0.634942
+- class 8 f1 score: 0.909430
+- class 9 f1 score: 0.923314
+use time: 8s
+
+Finish evaluating
+
+###################################
+dimension size: 290
+Start PCA ...
+X_train_lda.shape: (60000, 290)
+X_test_lda.shape: (10000, 290)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.807367
+
+- global f1: 0.807367
+- class 0 f1 score: 0.840430
+- class 1 f1 score: 0.918919
+- class 2 f1 score: 0.780417
+- class 3 f1 score: 0.830537
+- class 4 f1 score: 0.752987
+- class 5 f1 score: 0.773125
+- class 6 f1 score: 0.671949
+- class 7 f1 score: 0.642383
+- class 8 f1 score: 0.936167
+- class 9 f1 score: 0.921192
+use time: 60s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.770400
+
+- global f1: 0.770400
+- class 0 f1 score: 0.788009
+- class 1 f1 score: 0.903509
+- class 2 f1 score: 0.710495
+- class 3 f1 score: 0.792801
+- class 4 f1 score: 0.704729
+- class 5 f1 score: 0.762273
+- class 6 f1 score: 0.590701
+- class 7 f1 score: 0.626968
+- class 8 f1 score: 0.909771
+- class 9 f1 score: 0.921569
+use time: 9s
+
+Finish evaluating
+
+###################################
+dimension size: 320
+Start PCA ...
+X_train_lda.shape: (60000, 320)
+X_test_lda.shape: (10000, 320)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.804833
+
+- global f1: 0.804833
+- class 0 f1 score: 0.843354
+- class 1 f1 score: 0.914027
+- class 2 f1 score: 0.773060
+- class 3 f1 score: 0.825604
+- class 4 f1 score: 0.749625
+- class 5 f1 score: 0.770572
+- class 6 f1 score: 0.672000
+- class 7 f1 score: 0.636559
+- class 8 f1 score: 0.936870
+- class 9 f1 score: 0.921639
+use time: 68s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.763000
+
+- global f1: 0.763000
+- class 0 f1 score: 0.787325
+- class 1 f1 score: 0.896856
+- class 2 f1 score: 0.695546
+- class 3 f1 score: 0.791724
+- class 4 f1 score: 0.695449
+- class 5 f1 score: 0.751622
+- class 6 f1 score: 0.585768
+- class 7 f1 score: 0.594670
+- class 8 f1 score: 0.909515
+- class 9 f1 score: 0.920455
+use time: 11s
+
+Finish evaluating
+
+###################################
+dimension size: 350
+Start PCA ...
+X_train_lda.shape: (60000, 350)
+X_test_lda.shape: (10000, 350)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.803000
+
+- global f1: 0.803000
+- class 0 f1 score: 0.845490
+- class 1 f1 score: 0.908098
+- class 2 f1 score: 0.769307
+- class 3 f1 score: 0.822909
+- class 4 f1 score: 0.748333
+- class 5 f1 score: 0.769091
+- class 6 f1 score: 0.668926
+- class 7 f1 score: 0.633152
+- class 8 f1 score: 0.939819
+- class 9 f1 score: 0.921876
+use time: 78s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.756200
+
+- global f1: 0.756200
+- class 0 f1 score: 0.784441
+- class 1 f1 score: 0.888271
+- class 2 f1 score: 0.684830
+- class 3 f1 score: 0.784799
+- class 4 f1 score: 0.684272
+- class 5 f1 score: 0.744045
+- class 6 f1 score: 0.581046
+- class 7 f1 score: 0.571021
+- class 8 f1 score: 0.913696
+- class 9 f1 score: 0.921488
+use time: 13s
+
+Finish evaluating
+
+###################################
+dimension size: 380
+Start PCA ...
+X_train_lda.shape: (60000, 380)
+X_test_lda.shape: (10000, 380)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.800383
+
+- global f1: 0.800383
+- class 0 f1 score: 0.846283
+- class 1 f1 score: 0.902205
+- class 2 f1 score: 0.759461
+- class 3 f1 score: 0.818736
+- class 4 f1 score: 0.746398
+- class 5 f1 score: 0.767943
+- class 6 f1 score: 0.667181
+- class 7 f1 score: 0.631460
+- class 8 f1 score: 0.939978
+- class 9 f1 score: 0.921994
+use time: 88s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.750500
+
+- global f1: 0.750500
+- class 0 f1 score: 0.787223
+- class 1 f1 score: 0.882057
+- class 2 f1 score: 0.662864
+- class 3 f1 score: 0.782332
+- class 4 f1 score: 0.679623
+- class 5 f1 score: 0.738820
+- class 6 f1 score: 0.575550
+- class 7 f1 score: 0.555155
+- class 8 f1 score: 0.912494
+- class 9 f1 score: 0.919338
+use time: 15s
+
+Finish evaluating
+
+###################################
+dimension size: 410
+Start PCA ...
+X_train_lda.shape: (60000, 410)
+X_test_lda.shape: (10000, 410)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.798900
+
+- global f1: 0.798900
+- class 0 f1 score: 0.848517
+- class 1 f1 score: 0.896856
+- class 2 f1 score: 0.753804
+- class 3 f1 score: 0.815332
+- class 4 f1 score: 0.743430
+- class 5 f1 score: 0.768481
+- class 6 f1 score: 0.664587
+- class 7 f1 score: 0.635541
+- class 8 f1 score: 0.940605
+- class 9 f1 score: 0.922178
+use time: 104s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.740100
+
+- global f1: 0.740100
+- class 0 f1 score: 0.781522
+- class 1 f1 score: 0.871968
+- class 2 f1 score: 0.649936
+- class 3 f1 score: 0.774399
+- class 4 f1 score: 0.667063
+- class 5 f1 score: 0.724926
+- class 6 f1 score: 0.567901
+- class 7 f1 score: 0.505970
+- class 8 f1 score: 0.914634
+- class 9 f1 score: 0.920684
+use time: 16s
+
+Finish evaluating
+
+###################################
+dimension size: 440
+Start PCA ...
+X_train_lda.shape: (60000, 440)
+X_test_lda.shape: (10000, 440)
+Finish PCA
+
+Start evaluating training set ...
+progress: 1.00% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.796867
+
+- global f1: 0.796867
+- class 0 f1 score: 0.850426
+- class 1 f1 score: 0.891557
+- class 2 f1 score: 0.745521
+- class 3 f1 score: 0.813105
+- class 4 f1 score: 0.741682
+- class 5 f1 score: 0.767902
+- class 6 f1 score: 0.662129
+- class 7 f1 score: 0.633009
+- class 8 f1 score: 0.940428
+- class 9 f1 score: 0.923169
+use time: 108s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.728100
+
+- global f1: 0.728100
+- class 0 f1 score: 0.779420
+- class 1 f1 score: 0.863636
+- class 2 f1 score: 0.642440
+- class 3 f1 score: 0.766380
+- class 4 f1 score: 0.655875
+- class 5 f1 score: 0.703677
+- class 6 f1 score: 0.565066
+- class 7 f1 score: 0.424862
+- class 8 f1 score: 0.907649
+- class 9 f1 score: 0.921162
+use time: 17s
+
+Finish evaluating
+
+###################################
+dimension size: 470
+Start PCA ...
+X_train_lda.shape: (60000, 470)
+X_test_lda.shape: (10000, 470)
+Finish PCA
+
+Start evaluating training set ...
+progress: 1.50% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.795933
+
+- global f1: 0.795933
+- class 0 f1 score: 0.850262
+- class 1 f1 score: 0.886621
+- class 2 f1 score: 0.738215
+- class 3 f1 score: 0.810660
+- class 4 f1 score: 0.741893
+- class 5 f1 score: 0.770494
+- class 6 f1 score: 0.659586
+- class 7 f1 score: 0.639180
+- class 8 f1 score: 0.940334
+- class 9 f1 score: 0.924570
+use time: 124s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.716200
+
+- global f1: 0.716200
+- class 0 f1 score: 0.781421
+- class 1 f1 score: 0.850575
+- class 2 f1 score: 0.626649
+- class 3 f1 score: 0.756076
+- class 4 f1 score: 0.655502
+- class 5 f1 score: 0.685413
+- class 6 f1 score: 0.556552
+- class 7 f1 score: 0.334443
+- class 8 f1 score: 0.906890
+- class 9 f1 score: 0.921558
+use time: 20s
+
+Finish evaluating
+
+###################################
+dimension size: 500
+Start PCA ...
+X_train_lda.shape: (60000, 500)
+X_test_lda.shape: (10000, 500)
+Finish PCA
+
+Start evaluating training set ...
+progress: 0.17% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.795117
+
+- global f1: 0.795117
+- class 0 f1 score: 0.852701
+- class 1 f1 score: 0.881432
+- class 2 f1 score: 0.729984
+- class 3 f1 score: 0.808075
+- class 4 f1 score: 0.740663
+- class 5 f1 score: 0.773340
+- class 6 f1 score: 0.657035
+- class 7 f1 score: 0.647191
+- class 8 f1 score: 0.940129
+- class 9 f1 score: 0.924979
+use time: 144s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.709200
+
+- global f1: 0.709200
+- class 0 f1 score: 0.782369
+- class 1 f1 score: 0.841251
+- class 2 f1 score: 0.603239
+- class 3 f1 score: 0.750223
+- class 4 f1 score: 0.645858
+- class 5 f1 score: 0.681104
+- class 6 f1 score: 0.554086
+- class 7 f1 score: 0.305085
+- class 8 f1 score: 0.903676
+- class 9 f1 score: 0.920124
+use time: 23s
+
+Finish evaluating
+
+###################################
+dimension size: 530
+Start PCA ...
+X_train_lda.shape: (60000, 530)
+X_test_lda.shape: (10000, 530)
+Finish PCA
+
+Start evaluating training set ...
+progress: 8.17% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.794583
+
+- global f1: 0.794583
+- class 0 f1 score: 0.853281
+- class 1 f1 score: 0.876089
+- class 2 f1 score: 0.723151
+- class 3 f1 score: 0.805169
+- class 4 f1 score: 0.738377
+- class 5 f1 score: 0.777690
+- class 6 f1 score: 0.654172
+- class 7 f1 score: 0.661205
+- class 8 f1 score: 0.939849
+- class 9 f1 score: 0.925178
+use time: 155s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.697000
+
+- global f1: 0.697000
+- class 0 f1 score: 0.779249
+- class 1 f1 score: 0.826291
+- class 2 f1 score: 0.594154
+- class 3 f1 score: 0.741135
+- class 4 f1 score: 0.638118
+- class 5 f1 score: 0.665070
+- class 6 f1 score: 0.545516
+- class 7 f1 score: 0.206278
+- class 8 f1 score: 0.900232
+- class 9 f1 score: 0.921721
+use time: 25s
+
+Finish evaluating
+
+###################################
+dimension size: 560
+Start PCA ...
+X_train_lda.shape: (60000, 560)
+X_test_lda.shape: (10000, 560)
+Finish PCA
+
+Start evaluating training set ...
+progress: 7.00% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.794750
+
+- global f1: 0.794750
+- class 0 f1 score: 0.854652
+- class 1 f1 score: 0.872710
+- class 2 f1 score: 0.716405
+- class 3 f1 score: 0.802493
+- class 4 f1 score: 0.736772
+- class 5 f1 score: 0.783586
+- class 6 f1 score: 0.651237
+- class 7 f1 score: 0.677666
+- class 8 f1 score: 0.938665
+- class 9 f1 score: 0.925509
+use time: 164s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.681000
+
+- global f1: 0.681000
+- class 0 f1 score: 0.778889
+- class 1 f1 score: 0.789346
+- class 2 f1 score: 0.575380
+- class 3 f1 score: 0.722850
+- class 4 f1 score: 0.628710
+- class 5 f1 score: 0.649916
+- class 6 f1 score: 0.538716
+- class 7 f1 score: 0.095238
+- class 8 f1 score: 0.896488
+- class 9 f1 score: 0.919087
+use time: 27s
+
+Finish evaluating
+
+###################################
+dimension size: 590
+Start PCA ...
+X_train_lda.shape: (60000, 590)
+X_test_lda.shape: (10000, 590)
+Finish PCA
+
+Start evaluating training set ...
+progress: 9.50% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.795050
+
+- global f1: 0.795050
+- class 0 f1 score: 0.854570
+- class 1 f1 score: 0.872074
+- class 2 f1 score: 0.707503
+- class 3 f1 score: 0.801475
+- class 4 f1 score: 0.735084
+- class 5 f1 score: 0.790579
+- class 6 f1 score: 0.647244
+- class 7 f1 score: 0.693917
+- class 8 f1 score: 0.937371
+- class 9 f1 score: 0.926511
+use time: 186s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.671100
+
+- global f1: 0.671100
+- class 0 f1 score: 0.775056
+- class 1 f1 score: 0.748436
+- class 2 f1 score: 0.568436
+- class 3 f1 score: 0.704129
+- class 4 f1 score: 0.623630
+- class 5 f1 score: 0.646390
+- class 6 f1 score: 0.530933
+- class 7 f1 score: 0.076923
+- class 8 f1 score: 0.892775
+- class 9 f1 score: 0.918357
+use time: 30s
+
+Finish evaluating
+
+###################################
+dimension size: 620
+Start PCA ...
+X_train_lda.shape: (60000, 620)
+X_test_lda.shape: (10000, 620)
+Finish PCA
+
+Start evaluating training set ...
+progress: 7.17% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.795733
+
+- global f1: 0.795733
+- class 0 f1 score: 0.854745
+- class 1 f1 score: 0.873451
+- class 2 f1 score: 0.698664
+- class 3 f1 score: 0.800904
+- class 4 f1 score: 0.733772
+- class 5 f1 score: 0.796264
+- class 6 f1 score: 0.644994
+- class 7 f1 score: 0.709753
+- class 8 f1 score: 0.937500
+- class 9 f1 score: 0.925983
+use time: 201s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.660100
+
+- global f1: 0.660100
+- class 0 f1 score: 0.771125
+- class 1 f1 score: 0.704663
+- class 2 f1 score: 0.552799
+- class 3 f1 score: 0.687500
+- class 4 f1 score: 0.616322
+- class 5 f1 score: 0.640293
+- class 6 f1 score: 0.526794
+- class 7 f1 score: 0.043053
+- class 8 f1 score: 0.887466
+- class 9 f1 score: 0.917231
+use time: 33s
+
+Finish evaluating
+
+###################################
+dimension size: 650
+Start PCA ...
+X_train_lda.shape: (60000, 650)
+X_test_lda.shape: (10000, 650)
+Finish PCA
+
+Start evaluating training set ...
+progress: 0.00% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.796483
+
+- global f1: 0.796483
+- class 0 f1 score: 0.854007
+- class 1 f1 score: 0.874085
+- class 2 f1 score: 0.692184
+- class 3 f1 score: 0.799819
+- class 4 f1 score: 0.732005
+- class 5 f1 score: 0.803338
+- class 6 f1 score: 0.640884
+- class 7 f1 score: 0.727940
+- class 8 f1 score: 0.935540
+- class 9 f1 score: 0.926854
+use time: 235s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.728800
+
+- global f1: 0.728800
+- class 0 f1 score: 0.768886
+- class 1 f1 score: 0.842593
+- class 2 f1 score: 0.545325
+- class 3 f1 score: 0.743705
+- class 4 f1 score: 0.613317
+- class 5 f1 score: 0.775709
+- class 6 f1 score: 0.522838
+- class 7 f1 score: 0.704676
+- class 8 f1 score: 0.884826
+- class 9 f1 score: 0.917058
+use time: 35s
+
+Finish evaluating
+
+###################################
+dimension size: 680
+Start PCA ...
+X_train_lda.shape: (60000, 680)
+X_test_lda.shape: (10000, 680)
+Finish PCA
+
+Start evaluating training set ...
+progress: 3.84% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.798150
+
+- global f1: 0.798150
+- class 0 f1 score: 0.855000
+- class 1 f1 score: 0.874719
+- class 2 f1 score: 0.686548
+- class 3 f1 score: 0.798823
+- class 4 f1 score: 0.731605
+- class 5 f1 score: 0.811829
+- class 6 f1 score: 0.639952
+- class 7 f1 score: 0.747885
+- class 8 f1 score: 0.932082
+- class 9 f1 score: 0.926708
+use time: 248s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.728400
+
+- global f1: 0.728400
+- class 0 f1 score: 0.764474
+- class 1 f1 score: 0.843262
+- class 2 f1 score: 0.533141
+- class 3 f1 score: 0.743268
+- class 4 f1 score: 0.611145
+- class 5 f1 score: 0.781506
+- class 6 f1 score: 0.518877
+- class 7 f1 score: 0.721767
+- class 8 f1 score: 0.881202
+- class 9 f1 score: 0.916580
+use time: 44s
+
+Finish evaluating
+
+###################################
+dimension size: 710
+Start PCA ...
+X_train_lda.shape: (60000, 710)
+X_test_lda.shape: (10000, 710)
+Finish PCA
+/Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.798133
+
+- global f1: 0.798133
+- class 0 f1 score: 0.854159
+- class 1 f1 score: 0.874719
+- class 2 f1 score: 0.680417
+- class 3 f1 score: 0.798345
+- class 4 f1 score: 0.728331
+- class 5 f1 score: 0.817896
+- class 6 f1 score: 0.636784
+- class 7 f1 score: 0.761167
+- class 8 f1 score: 0.927634
+- class 9 f1 score: 0.925929
+use time: 197s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.729000
+
+- global f1: 0.729000
+- class 0 f1 score: 0.762817
+- class 1 f1 score: 0.843262
+- class 2 f1 score: 0.522496
+- class 3 f1 score: 0.744852
+- class 4 f1 score: 0.609069
+- class 5 f1 score: 0.789517
+- class 6 f1 score: 0.515152
+- class 7 f1 score: 0.742255
+- class 8 f1 score: 0.875226
+- class 9 f1 score: 0.916667
+use time: 27s
+
+Finish evaluating
+
+###################################
+dimension size: 740
+Start PCA ...
+X_train_lda.shape: (60000, 740)
+X_test_lda.shape: (10000, 740)
+Finish PCA
+
+Start evaluating training set ...
+progress: 2.17% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.798633
+
+- global f1: 0.798633
+- class 0 f1 score: 0.855053
+- class 1 f1 score: 0.875351
+- class 2 f1 score: 0.679704
+- class 3 f1 score: 0.798586
+- class 4 f1 score: 0.728539
+- class 5 f1 score: 0.820693
+- class 6 f1 score: 0.636298
+- class 7 f1 score: 0.768045
+- class 8 f1 score: 0.923450
+- class 9 f1 score: 0.924807
+use time: 188s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.728500
+
+- global f1: 0.728500
+- class 0 f1 score: 0.762549
+- class 1 f1 score: 0.843262
+- class 2 f1 score: 0.518519
+- class 3 f1 score: 0.744415
+- class 4 f1 score: 0.604537
+- class 5 f1 score: 0.792469
+- class 6 f1 score: 0.513269
+- class 7 f1 score: 0.748308
+- class 8 f1 score: 0.871403
+- class 9 f1 score: 0.915237
+use time: 29s
+
+Finish evaluating
+
+###################################
+dimension size: 770
+Start PCA ...
+X_train_lda.shape: (60000, 770)
+X_test_lda.shape: (10000, 770)
+Finish PCA
+
+Start evaluating training set ...
+progress: 6.00% /Users/samuellin/anaconda2/envs/tensor-py3/lib/python3.6/site-packages/numpy/linalg/linalg.py:2093: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+progress: 99.83%
+
+- accuracy: 0.798767
+
+- global f1: 0.798767
+- class 0 f1 score: 0.854591
+- class 1 f1 score: 0.875457
+- class 2 f1 score: 0.683054
+- class 3 f1 score: 0.797657
+- class 4 f1 score: 0.725757
+- class 5 f1 score: 0.822163
+- class 6 f1 score: 0.636566
+- class 7 f1 score: 0.770460
+- class 8 f1 score: 0.921371
+- class 9 f1 score: 0.924858
+use time: 204s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.728300
+
+- global f1: 0.728300
+- class 0 f1 score: 0.762655
+- class 1 f1 score: 0.843262
+- class 2 f1 score: 0.523500
+- class 3 f1 score: 0.744082
+- class 4 f1 score: 0.600123
+- class 5 f1 score: 0.793305
+- class 6 f1 score: 0.513338
+- class 7 f1 score: 0.749077
+- class 8 f1 score: 0.866726
+- class 9 f1 score: 0.914672
+use time: 32s
+
+Finish evaluating
+
+
+------------------------------------
+Start LDA ...
+X_train_lda.shape: (60000, 9)
+X_test_lda.shape: (10000, 9)
+Finish LDA
+
+Start evaluating training set ...
+progress: 99.83%
+
+- accuracy: 0.817450
+
+- global f1: 0.817450
+- class 0 f1 score: 0.791766
+- class 1 f1 score: 0.966306
+- class 2 f1 score: 0.695855
+- class 3 f1 score: 0.840801
+- class 4 f1 score: 0.728093
+- class 5 f1 score: 0.878941
+- class 6 f1 score: 0.594133
+- class 7 f1 score: 0.850490
+- class 8 f1 score: 0.923867
+- class 9 f1 score: 0.918888
+use time: 7s
+
+Finish evaluating
+
+Start evaluating test set ...
+progress: 99.01%
+
+- accuracy: 0.804600
+
+- global f1: 0.804600
+- class 0 f1 score: 0.780639
+- class 1 f1 score: 0.966976
+- class 2 f1 score: 0.675189
+- class 3 f1 score: 0.823586
+- class 4 f1 score: 0.704630
+- class 5 f1 score: 0.872933
+- class 6 f1 score: 0.563929
+- class 7 f1 score: 0.861673
+- class 8 f1 score: 0.906667
+- class 9 f1 score: 0.907206
+use time: 1s
+
+Finish evaluating
+
+
+done
+
+Process finished with exit code 0
