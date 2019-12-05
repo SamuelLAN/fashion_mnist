@@ -29,7 +29,7 @@ def load_data():
     y_train_all = np.array(y_train_all)
 
     # ready for split data
-    data_length = X_train_all.len
+    data_length = len(X_train_all)
     random_indices = np.array(range(data_length))
 
     # set random seed
