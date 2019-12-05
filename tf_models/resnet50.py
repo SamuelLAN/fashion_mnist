@@ -269,7 +269,7 @@ class ResNet50(tf.keras.Model):
         x = self.l5b(x, training=training)
         x = self.l5c(x, training=training)
 
-        x = self.avg_pool(x)
+        # x = self.avg_pool(x)
 
         if self.include_top:
             x = self.flatten(x)

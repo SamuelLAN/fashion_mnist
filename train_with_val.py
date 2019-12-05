@@ -26,8 +26,11 @@ class Train:
         self.__split_data()
 
     def __reshape_data(self):
-        self.__X_train_all.reshape((-1, 28, 28))
-        self.__X_test.reshape((-1, 28, 28))
+        self.__X_train_all = self.__X_train_all.reshape((-1, 28, 28, 1))
+        self.__X_test = self.__X_test.reshape((-1, 28, 28, 1))
+
+        self.__y_train_all = np.eye(10)[self.__y_train_all]
+        self.__y_test = np.eye(10)[self.__y_test]
 
     def __split_data(self):
         """ split data into training set, validation set and test set """
