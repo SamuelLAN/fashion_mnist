@@ -1,6 +1,7 @@
 #!/usr/bin/Python
 # -*- coding: utf-8 -*-
 import time
+import json
 import random
 import numpy as np
 from sklearn.metrics import accuracy_score, f1_score
@@ -58,8 +59,8 @@ def evaluate(y_true, y_pred, _classes):
         echo('- class %d f1 score: %f' % (_class, f1[i]))
 
 
-def train_and_predict(_X_train, _y_train, _X_val, _y_val, _X_test, _y_test, c=1., kernel='rbf', **kwargs):
-    o_svc = SVC(c, kernel=kernel, random_state=random_state, tol=kwargs['tol'], gamma=kwargs['gamma'])
+def train_and_predict(_X_train, _y_train, _X_val, _y_val, _X_test, _y_test, **kwargs):
+    o_svc = SVC(**kwargs)
 
     echo('\nStart training model ...')
     start_time = time.time()
@@ -101,13 +102,12 @@ def train_and_predict(_X_train, _y_train, _X_val, _y_val, _X_test, _y_test, c=1.
     echo('Finish evaluating test set\n')
 
 
-def svm(_dim_size, _c, _kernel, _train_sample_num, _reduction_method='pca', **kwargs):
+def svm(_dim_size, _train_sample_num, _reduction_method='pca', **kwargs):
     # show and log the parameters
     echo('-----------------------------------------------------')
     echo('start_time: %s' % str(time.strftime('%Y.%m.%d %H:%M:%S')))
     echo('dimension size: %s' % str(_dim_size))
-    echo('c: %.2f' % _c)
-    echo('kernel: %s' % _kernel)
+    echo('params: %s' % json.dumps(kwargs))
     echo('train_sample_num: %d' % _train_sample_num)
     echo('reduction_method: %s' % _reduction_method)
 
@@ -143,8 +143,7 @@ def svm(_dim_size, _c, _kernel, _train_sample_num, _reduction_method='pca', **kw
     echo('\nUse %d samples for training ' % _train_sample_num)
 
     train_and_predict(X_train_reduced[:_train_sample_num], y_train[:_train_sample_num], X_val_reduced, y_val,
-                      X_test_reduced, y_test,
-                      _c, _kernel, **kwargs)
+                      X_test_reduced, y_test, **kwargs)
 
 
 # loading data
@@ -166,7 +165,7 @@ for kernel in kernel_list:
     for c in c_list:
         for gamma in gamma_list:
             for tol in tol_list:
-                params = {'tol': tol, 'gamma': gamma}
-                svm(dim_size, c, kernel, train_sample_num, reduction_method, **params)
+                params = {'C': c, 'kernel': kernel, 'tol': tol, 'gamma': gamma, 'random_state': random_state}
+                svm(dim_size, train_sample_num, reduction_method, **params)
 
 print('\ndone')
