@@ -109,10 +109,10 @@ c_list = [float(i) / 10. for i in range(1, 15, 3)]
 kernel_list = ['linear', 'poly', 'rbf', 'sigmoid']
 
 # parameters
-dim_size = 50
+dim_size = 9
 c = 1.
 kernel = 'linear'
-train_sample_num = 10000
+train_sample_num = 54000
 
 # show and log the parameters
 echo('-----------------------------------------------------')
