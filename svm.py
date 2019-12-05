@@ -146,6 +146,6 @@ echo('Finish LDA')
 
 echo('\nUse %d samples for training ' % train_sample_num)
 
-train_and_predict(X_train_lda[:train_sample_num], y_train[:train_sample_num], X_val, y_val, X_test_lda, y_test, c, kernel)
+train_and_predict(X_train_lda[:train_sample_num], y_train[:train_sample_num], X_val_lda, y_val, X_test_lda, y_test, c, kernel)
 
 echo('done\n')
