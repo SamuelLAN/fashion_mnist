@@ -27,10 +27,10 @@ class Model(NN):
     def config_for_keras(self):
         return {
             'optimizer': tf.train.AdamOptimizer,
-            'loss': keras.losses.binary_crossentropy,
+            'loss': keras.losses.categorical_crossentropy,
             'metrics': [
-                keras.metrics.binary_accuracy,
-                keras.metrics.binary_crossentropy,
+                keras.metrics.categorical_accuracy,
+                keras.metrics.categorical_crossentropy,
             ],
             'callbacks': [
                 self.callback_tf_board,
@@ -44,3 +44,6 @@ class Model(NN):
                               kernel_initializer=self.params['kernel_initializer'],
                               kernel_regularizer=self.params['kernel_regularizer'],
                               dropout=self.params['dropout'])
+
+
+
