@@ -58,8 +58,8 @@ def evaluate(y_true, y_pred, _classes):
         echo('- class %d f1 score: %f' % (_class, f1[i]))
 
 
-def train_and_predict(_X_train, _y_train, _X_val, _y_val, _X_test, _y_test, c=1., kernel='rbf'):
-    o_svc = SVC(c, kernel=kernel, random_state=random_state)
+def train_and_predict(_X_train, _y_train, _X_val, _y_val, _X_test, _y_test, c=1., kernel='rbf', **kwargs):
+    o_svc = SVC(c, kernel=kernel, random_state=random_state, tol=kwargs['tol'], gamma=kwargs['gamma'])
 
     echo('\nStart training model ...')
     start_time = time.time()
@@ -101,7 +101,7 @@ def train_and_predict(_X_train, _y_train, _X_val, _y_val, _X_test, _y_test, c=1.
     echo('Finish evaluating test set\n')
 
 
-def svm(_dim_size, _c, _kernel, _train_sample_num, _reduction_method='pca'):
+def svm(_dim_size, _c, _kernel, _train_sample_num, _reduction_method='pca', **kwargs):
     # show and log the parameters
     echo('-----------------------------------------------------')
     echo('start_time: %s' % str(time.strftime('%Y.%m.%d %H:%M:%S')))
@@ -144,24 +144,29 @@ def svm(_dim_size, _c, _kernel, _train_sample_num, _reduction_method='pca'):
 
     train_and_predict(X_train_reduced[:_train_sample_num], y_train[:_train_sample_num], X_val_reduced, y_val,
                       X_test_reduced, y_test,
-                      _c, _kernel)
+                      _c, _kernel, **kwargs)
 
 
 # loading data
 X_train, y_train, X_val, y_val, X_test, y_test, classes = load_data()
 
 # define the parameters that need to test
-c_list = [float(i) / 10. for i in range(1, 15, 3)]
-kernel_list = ['linear', 'poly', 'rbf', 'sigmoid']
+c_list = [float(i) / 10. for i in range(10, 41, 3)]
+# kernel_list = ['linear', 'poly', 'rbf', 'sigmoid']
+kernel_list = ['rbf']
+gamma_list = ['auto', 'scale', 0.3, 0.1, 0.01, 0.03, 0.06, 0.001, 0.003, 0.006]
+tol_list = [1e-3, 1e-4, 1e-5]
 
 # c = 1.
-# kernel = 'linear'
 train_sample_num = 54000
 reduction_method = 'lda'
 dim_size = 9 if reduction_method == 'lda' else 50
 
 for kernel in kernel_list:
     for c in c_list:
-        svm(dim_size, c, kernel, train_sample_num, reduction_method)
+        for gamma in gamma_list:
+            for tol in tol_list:
+                params = {'tol': tol, 'gamma': gamma}
+                svm(dim_size, c, kernel, train_sample_num, reduction_method, **params)
 
 print('\ndone')
