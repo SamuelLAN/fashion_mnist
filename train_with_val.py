@@ -22,6 +22,13 @@ class Train:
                                                                          kind='train')
         self.__X_test, self.__y_test = mnist_reader.load_mnist('fashion_mnist_from_git/data/fashion', kind='t10k')
 
+        self.__reshape_data()
+        self.__split_data()
+
+    def __reshape_data(self):
+        self.__X_train_all.reshape((-1, 28, 28))
+        self.__X_test.reshape((-1, 28, 28))
+
     def __split_data(self):
         """ split data into training set, validation set and test set """
         # ready for split data
