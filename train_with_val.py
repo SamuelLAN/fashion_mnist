@@ -25,7 +25,7 @@ class Train:
     def __split_data(self):
         """ split data into training set, validation set and test set """
         # ready for split data
-        data_length = self.__X_train.len
+        data_length = self.__X_train_all.len
         random_indices = np.array(range(data_length))
 
         # set random seed

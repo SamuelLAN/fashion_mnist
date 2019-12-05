@@ -19,3 +19,4 @@
 /fashion_mnist_from_git/static/
 /fashion_mnist_from_git/doc/
 /fashion_mnist_from_git/.gitignore
+runtime/

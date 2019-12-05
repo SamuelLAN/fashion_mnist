@@ -21,6 +21,7 @@ PATH_BOARD_DIR = os.path.join(__PATH_BOARD_DIR, MODEL_NAME)
 
 # the log file path, record all the models results and params
 PATH_MODEL_LOG = os.path.join(__RUNTIME_DIR, 'model.log')
+PATH_SVM_LOG = os.path.join(__RUNTIME_DIR, 'svm.log')
 
 
 def mkdir_time(upper_path, _time):
@@ -41,6 +42,7 @@ def mkdir_if_not_exist(dir_list):
 
 # create the directories listed above
 mkdir_if_not_exist([
+    __RUNTIME_DIR,
     __PATH_MODEL_DIR,
     PATH_MODEL_DIR,
     __PATH_BOARD_DIR,

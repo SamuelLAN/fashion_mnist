@@ -76,4 +76,4 @@ def output_and_log(file_path, output):
     print(output)
     # save to the log file
     with open(file_path, 'ab') as f:
-        f.write(output.encode('utf-8'))
+        f.write(str(output + '\n').encode('utf-8'))
