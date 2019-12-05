@@ -14,4 +14,4 @@
 
 - fashion_mnist_from_git
 
-    git clone from git hub, for loading the fashion mnist data
+    git clone from github, for loading the fashion mnist data

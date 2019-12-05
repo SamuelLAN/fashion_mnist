@@ -46,7 +46,7 @@ def train_and_predict(_X_train, _y_train, _X_test, _y_test, c=1., kernel='rbf'):
     evaluate(test_prediction, _y_test, classes)
     end_time = time.time()
     print('use time: %ds \n' % (end_time - start_time))
-    print('Finish evaluating \n')
+    print('Finish evaluating test set\n')
 
 
 # loading data
@@ -75,4 +75,4 @@ print('X_train_lda.shape: %s' % repr(X_train_pca.shape))
 print('X_test_lda.shape: %s' % repr(X_test_pca.shape))
 print('Finish PCA')
 
-train_and_predict(X_train_pca, y_train, X_test_pca, y_test, c, kernel)
+train_and_predict(X_train_pca[:10000], y_train[:10000], X_test_pca, y_test, c, kernel)
