@@ -24,6 +24,10 @@ def load_data():
     X_test, y_test = mnist_reader.load_mnist('fashion_mnist_from_git/data/fashion', kind='t10k')
     _classes = np.unique(y_train_all)
 
+    # convert to np.array
+    X_train_all = np.array(X_train_all)
+    y_train_all = np.array(y_train_all)
+
     # ready for split data
     data_length = X_train_all.len
     random_indices = np.array(range(data_length))
