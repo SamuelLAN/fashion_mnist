@@ -101,6 +101,52 @@ def train_and_predict(_X_train, _y_train, _X_val, _y_val, _X_test, _y_test, c=1.
     echo('Finish evaluating test set\n')
 
 
+def svm(_dim_size, _c, _kernel, _train_sample_num, _reduction_method='pca'):
+    # show and log the parameters
+    echo('-----------------------------------------------------')
+    echo('start_time: %s' % str(time.strftime('%Y.%m.%d %H:%M:%S')))
+    echo('dimension size: %s' % str(_dim_size))
+    echo('c: %.2f' % _c)
+    echo('kernel: %s' % _kernel)
+    echo('train_sample_num: %d' % _train_sample_num)
+    echo('reduction_method: %s' % _reduction_method)
+
+    if _reduction_method == 'pca':
+        # PCA
+        echo('\nStart PCA ...')
+
+        _pca = PCA(n_components=_dim_size, random_state=random_state)
+        X_train_reduced = _pca.fit_transform(X_train)
+        X_val_reduced = _pca.transform(X_val)
+        X_test_reduced = _pca.transform(X_test)
+
+        echo('X_train_pca.shape: %s' % repr(X_train_reduced.shape))
+        echo('X_val_pca.shape: %s' % repr(X_val_reduced.shape))
+        echo('X_test_pca.shape: %s' % repr(X_test_reduced.shape))
+        echo('Finish PCA')
+
+    else:
+
+        # LDA
+        echo('\nStart LDA ...')
+        _lda = LDA()
+        X_train_reduced = _lda.fit_transform(X_train, y_train)
+        X_val_reduced = _lda.transform(X_val)
+        X_test_reduced = _lda.transform(X_test)
+        echo('X_train_lda.shape: %s' % repr(X_train_reduced.shape))
+        echo('X_val_lda.shape: %s' % repr(X_val_reduced.shape))
+        echo('X_test_lda.shape: %s' % repr(X_test_reduced.shape))
+        echo('Finish LDA')
+
+        _train_sample_num = len(X_train_reduced)
+
+    echo('\nUse %d samples for training ' % _train_sample_num)
+
+    train_and_predict(X_train_reduced[:_train_sample_num], y_train[:_train_sample_num], X_val_reduced, y_val,
+                      X_test_reduced, y_test,
+                      _c, _kernel)
+
+
 # loading data
 X_train, y_train, X_val, y_val, X_test, y_test, classes = load_data()
 
@@ -108,46 +154,14 @@ X_train, y_train, X_val, y_val, X_test, y_test, classes = load_data()
 c_list = [float(i) / 10. for i in range(1, 15, 3)]
 kernel_list = ['linear', 'poly', 'rbf', 'sigmoid']
 
-# parameters
-dim_size = 9
-c = 1.
-kernel = 'linear'
+# c = 1.
+# kernel = 'linear'
 train_sample_num = 54000
+reduction_method = 'lda'
+dim_size = 9 if reduction_method == 'lda' else 50
 
-# show and log the parameters
-echo('-----------------------------------------------------')
-echo('start_time: %s' % str(time.strftime('%Y.%m.%d %H:%M:%S')))
-echo('dimension size: %s' % str(dim_size))
-echo('c: %.2f' % c)
-echo('kernel: %s' % kernel)
-echo('train_sample_num: %d' % train_sample_num)
+for kernel in kernel_list:
+    for c in c_list:
+        svm(dim_size, c, kernel, train_sample_num, reduction_method)
 
-# # PCA
-# echo('\nStart PCA ...')
-#
-# _pca = PCA(n_components=dim_size, random_state=random_state)
-# X_train_pca = _pca.fit_transform(X_train)
-# X_val_pca = _pca.transform(X_val)
-# X_test_pca = _pca.transform(X_test)
-#
-# echo('X_train_pca.shape: %s' % repr(X_train_pca.shape))
-# echo('X_val_pca.shape: %s' % repr(X_val_pca.shape))
-# echo('X_test_pca.shape: %s' % repr(X_test_pca.shape))
-# echo('Finish PCA')
-
-# LDA
-echo('\nStart LDA ...')
-_lda = LDA()
-X_train_lda = _lda.fit_transform(X_train, y_train)
-X_val_lda = _lda.transform(X_val)
-X_test_lda = _lda.transform(X_test)
-echo('X_train_lda.shape: %s' % repr(X_train_lda.shape))
-echo('X_val_lda.shape: %s' % repr(X_val_lda.shape))
-echo('X_test_lda.shape: %s' % repr(X_test_lda.shape))
-echo('Finish LDA')
-
-echo('\nUse %d samples for training ' % train_sample_num)
-
-train_and_predict(X_train_lda[:train_sample_num], y_train[:train_sample_num], X_val_lda, y_val, X_test_lda, y_test, c, kernel)
-
-echo('done\n')
+print('\ndone')
