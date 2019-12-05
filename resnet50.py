@@ -40,7 +40,7 @@ class Model(NN):
 
     def build(self):
         """ Build neural network architecture """
-        self.model = ResNet50('channels_last', classes=2,
+        self.model = ResNet50('channels_last', classes=10,
                               kernel_initializer=self.params['kernel_initializer'],
                               kernel_regularizer=self.params['kernel_regularizer'],
                               dropout=self.params['dropout'])
