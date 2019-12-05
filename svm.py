@@ -112,7 +112,7 @@ kernel_list = ['linear', 'poly', 'rbf', 'sigmoid']
 dim_size = 50
 c = 1.
 kernel = 'linear'
-train_sample_num = 3000
+train_sample_num = 10000
 
 # show and log the parameters
 echo('-----------------------------------------------------')
@@ -130,8 +130,9 @@ echo('train_sample_num: %d' % train_sample_num)
 # X_val_pca = _pca.transform(X_val)
 # X_test_pca = _pca.transform(X_test)
 #
-# echo('X_train_lda.shape: %s' % repr(X_train_pca.shape))
-# echo('X_test_lda.shape: %s' % repr(X_test_pca.shape))
+# echo('X_train_pca.shape: %s' % repr(X_train_pca.shape))
+# echo('X_val_pca.shape: %s' % repr(X_val_pca.shape))
+# echo('X_test_pca.shape: %s' % repr(X_test_pca.shape))
 # echo('Finish PCA')
 
 # LDA
@@ -141,6 +142,7 @@ X_train_lda = _lda.fit_transform(X_train, y_train)
 X_val_lda = _lda.transform(X_val)
 X_test_lda = _lda.transform(X_test)
 echo('X_train_lda.shape: %s' % repr(X_train_lda.shape))
+echo('X_val_lda.shape: %s' % repr(X_val_lda.shape))
 echo('X_test_lda.shape: %s' % repr(X_test_lda.shape))
 echo('Finish LDA')
 
