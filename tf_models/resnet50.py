@@ -172,7 +172,7 @@ class ResNet50(tf.keras.Model):
                  trainable=True,
                  include_top=True,
                  pooling=None,
-                 classes=1000,
+                 classes=10,
                  kernel_initializer=tf.initializers.truncated_normal,
                  kernel_regularizer=None,
                  dropout=None):
@@ -228,7 +228,7 @@ class ResNet50(tf.keras.Model):
         if self.include_top:
             self.flatten = layers.Flatten()
             self.dropout = layers.Dropout(dropout) if dropout else None
-            self.fc1000 = layers.Dense(classes, name='fc1000')
+            self.fc10 = layers.Dense(classes, name='fc10', activation='softmax')
         else:
             reduction_indices = [1, 2] if data_format == 'channels_last' else [2, 3]
             reduction_indices = tf.constant(reduction_indices)
@@ -275,7 +275,7 @@ class ResNet50(tf.keras.Model):
             x = self.flatten(x)
             if not isinstance(self.dropout, type(None)):
                 x = self.dropout(x)
-            return self.fc1000(x)
+            return self.fc10(x)
         elif self.global_pooling:
             return self.global_pooling(x)
         else:

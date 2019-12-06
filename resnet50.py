@@ -12,15 +12,15 @@ class Model(NN):
     # model param config
     params = {
         **NN.default_params,
-        'learning_rate': 1e-4,
+        'learning_rate': 6e-7,
         'lr_decay_rate': 0.7,
         'lr_staircase': True,
         'batch_size': 20,
         'epoch': 200,
         'early_stop': 20,
-        'kernel_initializer': tf.initializers.truncated_normal(seed=RANDOM_STATE),
+        'kernel_initializer': tf.initializers.glorot_uniform(seed=RANDOM_STATE),
         'kernel_regularizer': None,
-        'dropout': 0.5,
+        'dropout': None,
     }
 
     @property

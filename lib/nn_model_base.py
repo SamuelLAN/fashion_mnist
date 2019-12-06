@@ -21,7 +21,7 @@ class NN:
         'epoch': 100,
         'early_stop': 30,
         'auto_open_tensorboard': True,
-        'monitor': 'val_binary_accuracy',
+        'monitor': 'val_categorical_accuracy',
         'monitor_mode': 'max',
         'monitor_start_train_acc': 0.65,
         'random_state': RANDOM_STATE,

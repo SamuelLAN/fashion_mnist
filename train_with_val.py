@@ -22,8 +22,13 @@ class Train:
                                                                          kind='train')
         self.__X_test, self.__y_test = mnist_reader.load_mnist('fashion_mnist_from_git/data/fashion', kind='t10k')
 
+        self.__normalize()
         self.__reshape_data()
         self.__split_data()
+
+    def __normalize(self):
+        self.__X_train_all = self.__X_train_all / 255.
+        self.__X_test = self.__X_train_all / 255.
 
     def __reshape_data(self):
         self.__X_train_all = self.__X_train_all.reshape((-1, 28, 28, 1))
