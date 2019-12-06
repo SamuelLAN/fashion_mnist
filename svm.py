@@ -150,15 +150,19 @@ def svm(_dim_size, _train_sample_num, _reduction_method='pca', **kwargs):
 X_train, y_train, X_val, y_val, X_test, y_test, classes = load_data()
 
 # define the parameters that need to test
-c_list = [float(i) / 10. for i in range(10, 41, 3)]
+# c_list = [float(i) / 10. for i in range(10, 41, 3)]
 # kernel_list = ['linear', 'poly', 'rbf', 'sigmoid']
-kernel_list = ['rbf']
-gamma_list = ['auto', 'scale', 0.3, 0.1, 0.01, 0.03, 0.06, 0.001, 0.003, 0.006]
-tol_list = [1e-3, 1e-4, 1e-5]
+# gamma_list = ['auto', 'scale', 0.3, 0.1, 0.01, 0.03, 0.06, 0.001, 0.003, 0.006]
+# tol_list = [1e-3, 1e-4, 1e-5]
+c_list = [1.0]
+kernel_list = ['linear']
+gamma_list = ['auto']
+tol_list = [1e-3]
 
 # c = 1.
-train_sample_num = 54000
-reduction_method = 'lda'
+train_sample_num = 2000
+# reduction_method = 'lda'
+reduction_method = 'pca'
 dim_size = 9 if reduction_method == 'lda' else 50
 
 for kernel in kernel_list:

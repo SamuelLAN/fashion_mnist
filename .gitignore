@@ -1,8 +1,8 @@
 .idea
 .npy
 .pkl
-.DS_Store
 *.pyc
+.DS_Store
 /fashion_mnist_from_git/CONTRIBUTING.md
 /fashion_mnist_from_git/README.ja.md
 /fashion_mnist_from_git/app.py
