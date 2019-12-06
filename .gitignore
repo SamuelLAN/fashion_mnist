@@ -1,6 +1,6 @@
-.idea/
-*.npy
-*.pkl
+.idea
+.npy
+.pkl
 *.pyc
 /fashion_mnist_from_git/CONTRIBUTING.md
 /fashion_mnist_from_git/README.ja.md
