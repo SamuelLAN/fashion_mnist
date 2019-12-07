@@ -5,7 +5,7 @@ import re
 import math
 import numpy as np
 import tensorflow as tf
-from config.param import IS_TRAIN, measure_dict, RANDOM_STATE
+from config.param import IS_TRAIN, measure_dict, RANDOM_STATE, NEW_TIME_DIR
 from config.path import PATH_MODEL_DIR, PATH_BOARD_DIR, mkdir_time
 from tf_callback.Saver import Saver
 
@@ -24,6 +24,7 @@ class NN:
         'monitor': 'val_categorical_accuracy',
         'monitor_mode': 'max',
         'monitor_start_train_acc': 0.65,
+        'initial_epoch': 0,
         'random_state': RANDOM_STATE,
     }
 
@@ -54,7 +55,7 @@ class NN:
         # initialize some variables that would be used by func "model.fit";
         #   the child class can change this params when customizing the build func
         self.__class_weight = None
-        self.__initial_epoch = 0
+        self.__initial_epoch = 0 if 'initial_epoch' not in self.params else self.params['initial_epoch']
 
         # get the tensorboard dir path
         self.__get_tf_board_path(model_dir)
@@ -77,6 +78,11 @@ class NN:
         self.model_path = os.path.join(self.__model_dir, model_name + '.hdf5')
         self.checkpoint_path = os.path.join(self.__model_dir,
                                             model_name + '.{epoch:03d}-{%s:.4f}.hdf5' % self.params['monitor'])
+
+        self.__new_model_dir = os.path.join(os.path.split(self.__model_dir)[0], NEW_TIME_DIR)
+        self.__update_model_path = os.path.join(self.__new_model_dir, model_name + '.hdf5')
+        self.__update_checkpoint_path = os.path.join(self.__new_model_dir,
+                                                     model_name + '.{epoch:03d}-{%s:.4f}.hdf5' % self.params['monitor'])
 
         # check if model exists
         if not os.path.isfile(self.model_path) and not os.path.isfile(self.model_path + '.index'):
@@ -133,6 +139,7 @@ class NN:
         self.__learning_rate = tf.train.exponential_decay(self.params['learning_rate'], self.__global_step,
                                                           self.__decay_steps, self.params['lr_decay_rate'],
                                                           self.params['lr_staircase'])
+        tf.summary.scalar('learning_rate', self.__learning_rate)
 
     def __init_callback(self):
         """ Customize some callbacks """
@@ -161,6 +168,8 @@ class NN:
         # if model exists, load the model weight
         if os.path.isfile(self.model_path) or os.path.isfile(self.model_path + '.index'):
             self.load_model(self.model_path, x, y)
+            self.model_path = self.__update_model_path
+            self.checkpoint_path = self.__update_checkpoint_path
 
     def train(self, train_x, train_y_one_hot, val_x, val_y_one_hot):
         """ Train model with all data loaded in memory """

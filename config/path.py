@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-MODEL_NAME = 'ResNet50'
+MODEL_NAME = 'CNN'
 TRAIN_MODEL_NAME = MODEL_NAME
 
 __CUR_DIR = os.path.abspath(os.path.split(__file__)[0])
