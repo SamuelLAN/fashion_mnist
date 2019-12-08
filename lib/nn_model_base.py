@@ -7,7 +7,8 @@ import numpy as np
 import tensorflow as tf
 from config.param import IS_TRAIN, measure_dict, RANDOM_STATE, NEW_TIME_DIR
 from config.path import PATH_MODEL_DIR, PATH_BOARD_DIR, mkdir_time
-from tf_callback.Saver import Saver
+from tf_callback.saver import Saver
+from tf_callback.board import Board
 
 keras = tf.keras
 
@@ -15,15 +16,17 @@ keras = tf.keras
 class NN:
     default_params = {
         'learning_rate': 1e-7,
-        'lr_decay_rate': 0.1,
-        'lr_staircase': True,
+        'lr_decay_rate': 0.001,
+        'lr_staircase': False,
+        'lr_factor': 0.1,
+        'lr_patience': 3,
         'batch_size': 5,
         'epoch': 100,
         'early_stop': 30,
         'auto_open_tensorboard': True,
         'monitor': 'val_categorical_accuracy',
         'monitor_mode': 'max',
-        'monitor_start_train_acc': 0.65,
+        'monitor_start_train_acc': 0.85,
         'initial_epoch': 0,
         'random_state': RANDOM_STATE,
     }
@@ -36,20 +39,23 @@ class NN:
         """ NEED: Customize the config for keras """
         return {
             'optimizer': tf.train.AdamOptimizer,
-            'loss': keras.losses.binary_crossentropy,
+            # 'loss': keras.losses.binary_crossentropy,
+            'loss': 'sparse_categorical_crossentropy',
             'metrics': [
-                keras.metrics.binary_accuracy,
-                keras.metrics.binary_crossentropy,
+                keras.metrics.categorical_accuracy,
+                keras.metrics.categorical_crossentropy,
             ],
             'callbacks': [
                 self.callback_tf_board,
                 self.callback_saver,
+                self.callback_reduce_lr,
             ],
         }
 
     def __init__(self, model_dir, model_name=None):
         self.time_dir = model_dir
         self.__model_dir = mkdir_time(PATH_MODEL_DIR, model_dir)
+        self.__update_model_dir = mkdir_time(PATH_MODEL_DIR, NEW_TIME_DIR)
         self.__monitor_bigger_best = self.params['monitor_mode'] == 'max'
 
         # initialize some variables that would be used by func "model.fit";
@@ -79,9 +85,8 @@ class NN:
         self.checkpoint_path = os.path.join(self.__model_dir,
                                             model_name + '.{epoch:03d}-{%s:.4f}.hdf5' % self.params['monitor'])
 
-        self.__new_model_dir = os.path.join(os.path.split(self.__model_dir)[0], NEW_TIME_DIR)
-        self.__update_model_path = os.path.join(self.__new_model_dir, model_name + '.hdf5')
-        self.__update_checkpoint_path = os.path.join(self.__new_model_dir,
+        self.__update_model_path = os.path.join(self.__update_model_dir, model_name + '.hdf5')
+        self.__update_checkpoint_path = os.path.join(self.__update_model_dir,
                                                      model_name + '.{epoch:03d}-{%s:.4f}.hdf5' % self.params['monitor'])
 
         # check if model exists
@@ -127,6 +132,7 @@ class NN:
     def __get_tf_board_path(self, model_dir):
         """ Get the tensorboard dir path and run it on cmd """
         self.tf_board_dir = mkdir_time(PATH_BOARD_DIR, model_dir)
+        self.__update_tf_board_dir = mkdir_time(PATH_BOARD_DIR, NEW_TIME_DIR)
 
     def __init_variables(self, data_size):
         """ Initialize some variables that will be used while training """
@@ -136,18 +142,26 @@ class NN:
 
         self.__decay_steps = self.__steps if not self.params['lr_staircase'] else self.__steps_per_epoch
 
-        self.__learning_rate = tf.train.exponential_decay(self.params['learning_rate'], self.__global_step,
-                                                          self.__decay_steps, self.params['lr_decay_rate'],
-                                                          self.params['lr_staircase'])
-        tf.summary.scalar('learning_rate', self.__learning_rate)
+        def decayed_learning_rate(step):
+            step = min(step, self.__decay_steps)
+            return ((self.params['learning_rate'] - 1e-10) *
+                    (1 - step / self.__decay_steps) ^ (2)
+                    ) + 1e-10
+
+        self.__learning_rate = self.params['learning_rate']
+        # self.__learning_rate = tf.keras.optimizers.schedules.ExponentialDecay(self.params['learning_rate'],
+        #                                                                       decay_steps=self.__decay_steps,
+        #                                                                       decay_rate=self.params['lr_decay_rate'],
+        #                                                                       staircase=self.params['lr_staircase'])
 
     def __init_callback(self):
         """ Customize some callbacks """
-        self.callback_tf_board = keras.callbacks.TensorBoard(log_dir=self.tf_board_dir,
-                                                             histogram_freq=1,
-                                                             write_grads=True,
-                                                             write_graph=True,
-                                                             write_images=True)
+        self.callback_tf_board = Board(log_dir=self.tf_board_dir,
+                                       histogram_freq=10,
+                                       write_grads=False,
+                                       write_graph=True,
+                                       write_images=False,
+                                       profile_batch=0)
         self.callback_tf_board.set_model(self.model)
 
         self.callback_saver = Saver(self.checkpoint_path,
@@ -156,6 +170,11 @@ class NN:
                                     self.params['early_stop'],
                                     self.params['monitor_start_train_acc'])
         self.callback_saver.set_model(self.model)
+
+        self.callback_reduce_lr = keras.callbacks.ReduceLROnPlateau(monitor='loss',
+                                                                    factor=self.params['lr_factor'],
+                                                                    patience=self.params['lr_patience'],
+                                                                    verbose=1)
 
     def before_train(self, data_size, x, y):
         self.__init_variables(data_size)
@@ -168,8 +187,12 @@ class NN:
         # if model exists, load the model weight
         if os.path.isfile(self.model_path) or os.path.isfile(self.model_path + '.index'):
             self.load_model(self.model_path, x, y)
+
+            # update paths and callbacks
             self.model_path = self.__update_model_path
             self.checkpoint_path = self.__update_checkpoint_path
+            self.tf_board_dir = self.__update_tf_board_dir
+            self.__init_callback()
 
     def train(self, train_x, train_y_one_hot, val_x, val_y_one_hot):
         """ Train model with all data loaded in memory """
@@ -199,7 +222,7 @@ class NN:
         keras.backend.set_session(tf.Session(graph=tf.get_default_graph()))
 
     def compile(self, learning_rate):
-        self.model.compile(optimizer=self.config_for_keras['optimizer'](learning_rate),
+        self.model.compile(optimizer=self.config_for_keras['optimizer'](learning_rate=learning_rate),
                            loss=self.config_for_keras['loss'],
                            metrics=self.config_for_keras['metrics'])
 

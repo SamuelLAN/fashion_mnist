@@ -23,12 +23,17 @@ class Saver(keras.callbacks.Callback):
             return
 
         monitor = logs[self.__monitor]
+        train_monitor = self.__monitor.replace('val_', '')
+
         if (self.__mode == 'max' and monitor >= self.__best) or (self.__mode == 'min' and monitor <= self.__best):
             filepath = self.__file_path.format(epoch=epoch + 1, **logs)
             self.model.save_weights(filepath, overwrite=True)
             self.__best = monitor
             self.__patience = 0
             print('Save model to %s' % filepath)
+
+        # elif train_monitor != monitor and logs[train_monitor] < monitor:
+        #     return
 
         else:
             self.__patience += 1

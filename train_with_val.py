@@ -2,8 +2,12 @@
 # -*- coding: utf-8 -*-
 import time
 import random
+import warnings
 import numpy as np
-from resnet50 import Model
+
+warnings.filterwarnings('ignore')
+
+from cnn17 import Model
 from lib.utils import output_and_log
 from config import path
 from config.param import TIME_DIR, RANDOM_STATE
@@ -28,7 +32,7 @@ class Train:
 
     def __normalize(self):
         self.__X_train_all = self.__X_train_all / 255.
-        self.__X_test = self.__X_train_all / 255.
+        self.__X_test = self.__X_test / 255.
 
     def __reshape_data(self):
         self.__X_train_all = self.__X_train_all.reshape((-1, 28, 28, 1))

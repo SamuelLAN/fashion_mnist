@@ -1,4 +1,4 @@
-""" ResNet50 """
+""" ResNet18 """
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -12,7 +12,6 @@ class _IdentityBlock(tf.keras.Model):
     """_IdentityBlock is the block that has no conv layer at shortcut.
 
     Args:
-      kernel_size: the kernel size of middle conv layer at main path
       filters: list of integers, the filters of 3 conv layer at main path
       stage: integer, current stage label, used for generating layer names
       block: 'a','b'..., current block label, used for generating layer names
@@ -20,32 +19,26 @@ class _IdentityBlock(tf.keras.Model):
         'channels_last').
     """
 
-    def __init__(self, kernel_size, filters, stage, block, data_format,
+    def __init__(self, filters, stage, block, data_format,
                  kernel_initializer='glorot_uniform', kernel_regularizer=None):
         super(_IdentityBlock, self).__init__(name='')
-        filters1, filters2, filters3 = filters
+        filters1, filters2 = filters
 
         conv_name_base = 'res' + str(stage) + block + '_branch'
         bn_name_base = 'bn' + str(stage) + block + '_branch'
         bn_axis = 1 if data_format == 'channels_first' else -1
 
         self.conv2a = layers.Conv2D(
-            filters1, 1, name=conv_name_base + '2a', data_format=data_format,
+            filters1, 3, padding='same', name=conv_name_base + '2a', data_format=data_format,
             kernel_initializer=kernel_initializer, kernel_regularizer=kernel_regularizer)
         self.bn2a = layers.BatchNormalization(
             axis=bn_axis, name=bn_name_base + '2a')
 
         self.conv2b = layers.Conv2D(
-            filters2, kernel_size, padding='same', data_format=data_format, name=conv_name_base + '2b',
+            filters2, 3, padding='same', name=conv_name_base + '2b', data_format=data_format,
             kernel_initializer=kernel_initializer, kernel_regularizer=kernel_regularizer)
         self.bn2b = layers.BatchNormalization(
             axis=bn_axis, name=bn_name_base + '2b')
-
-        self.conv2c = layers.Conv2D(
-            filters3, 1, name=conv_name_base + '2c', data_format=data_format,
-            kernel_initializer=kernel_initializer, kernel_regularizer=kernel_regularizer)
-        self.bn2c = layers.BatchNormalization(
-            axis=bn_axis, name=bn_name_base + '2c')
 
     def call(self, input_tensor, training=False):
         x = self.conv2a(input_tensor)
@@ -54,10 +47,6 @@ class _IdentityBlock(tf.keras.Model):
 
         x = self.conv2b(x)
         x = self.bn2b(x, training=training)
-        x = tf.nn.relu(x)
-
-        x = self.conv2c(x)
-        x = self.bn2c(x, training=training)
 
         x += input_tensor
         return tf.nn.relu(x)
@@ -67,7 +56,6 @@ class _ConvBlock(tf.keras.Model):
     """_ConvBlock is the block that has a conv layer at shortcut.
 
     Args:
-        kernel_size: the kernel size of middle conv layer at main path
         filters: list of integers, the filters of 3 conv layer at main path
         stage: integer, current stage label, used for generating layer names
         block: 'a','b'..., current block label, used for generating layer names
@@ -79,41 +67,34 @@ class _ConvBlock(tf.keras.Model):
     """
 
     def __init__(self,
-                 kernel_size,
                  filters,
                  stage,
                  block,
                  data_format,
                  strides=(2, 2),
-                 kernel_initializer=tf.initializers.truncated_normal,
+                 kernel_initializer='glorot_uniform',
                  kernel_regularizer=None):
         super(_ConvBlock, self).__init__(name='')
-        filters1, filters2, filters3 = filters
+        filters1, filters2 = filters
 
         conv_name_base = 'res' + str(stage) + block + '_branch'
         bn_name_base = 'bn' + str(stage) + block + '_branch'
         bn_axis = 1 if data_format == 'channels_first' else -1
 
         self.conv2a = layers.Conv2D(
-            filters1, 1, strides=strides, name=conv_name_base + '2a', data_format=data_format,
+            filters1, 3, strides=strides, padding='same', name=conv_name_base + '2a', data_format=data_format,
             kernel_initializer=kernel_initializer, kernel_regularizer=kernel_regularizer)
         self.bn2a = layers.BatchNormalization(
             axis=bn_axis, name=bn_name_base + '2a')
 
         self.conv2b = layers.Conv2D(
-            filters2, kernel_size, padding='same', name=conv_name_base + '2b', data_format=data_format,
+            filters2, 3, padding='same', name=conv_name_base + '2b', data_format=data_format,
             kernel_initializer=kernel_initializer, kernel_regularizer=kernel_regularizer)
         self.bn2b = layers.BatchNormalization(
             axis=bn_axis, name=bn_name_base + '2b')
 
-        self.conv2c = layers.Conv2D(
-            filters3, 1, name=conv_name_base + '2c', data_format=data_format,
-            kernel_initializer=kernel_initializer, kernel_regularizer=kernel_regularizer)
-        self.bn2c = layers.BatchNormalization(
-            axis=bn_axis, name=bn_name_base + '2c')
-
         self.conv_shortcut = layers.Conv2D(
-            filters3, 1, strides=strides, name=conv_name_base + '1', data_format=data_format,
+            filters2, 1, strides=strides, padding='same', name=conv_name_base + '1', data_format=data_format,
             kernel_initializer=kernel_initializer, kernel_regularizer=kernel_regularizer)
         self.bn_shortcut = layers.BatchNormalization(
             axis=bn_axis, name=bn_name_base + '1')
@@ -125,10 +106,6 @@ class _ConvBlock(tf.keras.Model):
 
         x = self.conv2b(x)
         x = self.bn2b(x, training=training)
-        x = tf.nn.relu(x)
-
-        x = self.conv2c(x)
-        x = self.bn2c(x, training=training)
 
         shortcut = self.conv_shortcut(input_tensor)
         shortcut = self.bn_shortcut(shortcut, training=training)
@@ -138,7 +115,7 @@ class _ConvBlock(tf.keras.Model):
 
 
 # pylint: disable=not-callable
-class ResNet50(tf.keras.Model):
+class ResNet18(tf.keras.Model):
     """Instantiates the ResNet50 architecture.
 
     Args:
@@ -173,10 +150,10 @@ class ResNet50(tf.keras.Model):
                  include_top=True,
                  pooling=None,
                  classes=10,
-                 kernel_initializer=tf.initializers.truncated_normal,
+                 kernel_initializer='glorot_uniform',
                  kernel_regularizer=None,
                  dropout=None):
-        super(ResNet50, self).__init__(name=name)
+        super(ResNet18, self).__init__(name=name)
 
         valid_channel_values = ('channels_first', 'channels_last')
         if data_format not in valid_channel_values:
@@ -186,12 +163,12 @@ class ResNet50(tf.keras.Model):
 
         def conv_block(filters, stage, block, strides=(2, 2)):
             """ :rtype: class """
-            return _ConvBlock(3, filters, stage=stage, block=block, data_format=data_format, strides=strides,
+            return _ConvBlock(filters, stage=stage, block=block, data_format=data_format, strides=strides,
                               kernel_initializer=kernel_initializer, kernel_regularizer=kernel_regularizer)
 
         def id_block(filters, stage, block):
             """ :rtype: class """
-            return _IdentityBlock(3, filters, stage=stage, block=block, data_format=data_format,
+            return _IdentityBlock(filters, stage=stage, block=block, data_format=data_format,
                                   kernel_initializer=kernel_initializer, kernel_regularizer=kernel_regularizer)
 
         self.conv1 = layers.Conv2D(
@@ -202,28 +179,20 @@ class ResNet50(tf.keras.Model):
         self.max_pool = layers.MaxPooling2D(
             (3, 3), strides=(2, 2), data_format=data_format)
 
-        self.l2a = conv_block([64, 64, 256], stage=2, block='a', strides=(1, 1))
-        self.l2b = id_block([64, 64, 256], stage=2, block='b')
-        self.l2c = id_block([64, 64, 256], stage=2, block='c')
+        self.l2a = conv_block([64, 64], stage=2, block='a', strides=(1, 1))
+        self.l2b = id_block([64, 64], stage=2, block='b')
 
-        self.l3a = conv_block([128, 128, 512], stage=3, block='a')
-        self.l3b = id_block([128, 128, 512], stage=3, block='b')
-        self.l3c = id_block([128, 128, 512], stage=3, block='c')
-        self.l3d = id_block([128, 128, 512], stage=3, block='d')
+        self.l3a = conv_block([128, 128], stage=3, block='a')
+        self.l3b = id_block([128, 128], stage=3, block='b')
 
-        self.l4a = conv_block([256, 256, 1024], stage=4, block='a')
-        self.l4b = id_block([256, 256, 1024], stage=4, block='b')
-        self.l4c = id_block([256, 256, 1024], stage=4, block='c')
-        self.l4d = id_block([256, 256, 1024], stage=4, block='d')
-        self.l4e = id_block([256, 256, 1024], stage=4, block='e')
-        self.l4f = id_block([256, 256, 1024], stage=4, block='f')
+        self.l4a = conv_block([256, 256], stage=4, block='a')
+        self.l4b = id_block([256, 256], stage=4, block='b')
 
-        self.l5a = conv_block([512, 512, 2048], stage=5, block='a')
-        self.l5b = id_block([512, 512, 2048], stage=5, block='b')
-        self.l5c = id_block([512, 512, 2048], stage=5, block='c')
+        self.l5a = conv_block([512, 512], stage=5, block='a')
+        self.l5b = id_block([512, 512], stage=5, block='b')
 
-        self.avg_pool = layers.AveragePooling2D(
-            (2, 2), strides=(2, 2), data_format=data_format)
+        # self.avg_pool = layers.AveragePooling2D(
+        #     (2, 2), strides=(2, 2), data_format=data_format)
 
         if self.include_top:
             self.flatten = layers.Flatten()
@@ -251,23 +220,15 @@ class ResNet50(tf.keras.Model):
 
         x = self.l2a(x, training=training)
         x = self.l2b(x, training=training)
-        x = self.l2c(x, training=training)
 
         x = self.l3a(x, training=training)
         x = self.l3b(x, training=training)
-        x = self.l3c(x, training=training)
-        x = self.l3d(x, training=training)
 
         x = self.l4a(x, training=training)
         x = self.l4b(x, training=training)
-        x = self.l4c(x, training=training)
-        x = self.l4d(x, training=training)
-        x = self.l4e(x, training=training)
-        x = self.l4f(x, training=training)
 
         x = self.l5a(x, training=training)
         x = self.l5b(x, training=training)
-        x = self.l5c(x, training=training)
 
         # x = self.avg_pool(x)
 
