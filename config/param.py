@@ -9,10 +9,10 @@ measure_dict = {
 
 NUM_CLASSES = 10
 
-IS_TRAIN = False
+IS_TRAIN = True
 
 RANDOM_STATE = 42
 
-# TIME_DIR = time.strftime('%Y_%m_%d_%H_%M_%S')
-TIME_DIR = '2019_12_08_11_05_30'
+TIME_DIR = time.strftime('%Y_%m_%d_%H_%M_%S')
+# TIME_DIR = '2019_12_08_11_05_30'
 NEW_TIME_DIR = time.strftime('%Y_%m_%d_%H_%M_%S')

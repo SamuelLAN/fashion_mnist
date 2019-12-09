@@ -7,7 +7,7 @@ import numpy as np
 
 warnings.filterwarnings('ignore')
 
-from cnn17 import Model
+from vgg16 import Model
 from lib.utils import output_and_log
 from config import path
 from config.param import TIME_DIR, RANDOM_STATE
